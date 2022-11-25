@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url(./scss/null.scss);
+
+// import bootstrap //
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/grid";
+
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+.body-hidden {
+	overflow: hidden;
+}
+
+$container-min-widths: (
+	sm: 540px,
+	md: 768px,
+	lg: 992px,
+	xl: 1420px,
+);
+
+// colors //
+$text-color-light: white;
+$text-color-darck: black;
+
+$color-black: #49405A;
+$color-orange: #FFD5CD;
+$color-purple: #8675A9;
+$color-pink: #C3AED6;
+
+
+// fonts //
+$main-font: 'Roboto', sans-serif;
+$oswald-font: 'Oswald', sans-serif;
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&::-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+@mixin tlrb() {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+@mixin bg($size: cover) {
+	background-size: $size;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin standartAnimate($time: 0.3s) {
+	transition: ease-in 0.3s;
+}
+
+head,
+body {
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: $main-font;
+	font-weight: normal;
+	font-size: 16px;
+	color: $color-black;
+	position: relative;
+}
+
+.costum-title {
+	font-family: $oswald-font;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 58px;
+	// line-height: 130%;
+	text-transform: uppercase;
+	color: $color-black;
+}
+
+.costum-text {
+	font-family: $main-font;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 165.8%;
+}
+
+.header {
+	background: $color-purple;
+	padding: 22px 0;
+
+	&__container {
+		max-width: 1340px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		width: 171px;
+		height: 52px;
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+	}
+
+	&-list {
+		display: flex;
+
+		&__item {
+			margin-right: 27px;
+			font-family: $oswald-font;
+			font-weight: 500;
+			font-size: 18px;
+			// line-height: 160%;
+			text-transform: uppercase;
+			color: $text-color-light;
+		}
+	}
+
+	&-media {
+		margin-right: 15px;
+
+		&__link {
+			margin-right: 16px;
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.costum__btn {
+	font-family: $oswald-font;
+	height: 50px;
+	border: 1px solid #FFD5CD;
+	border-radius: 100px;
+	display: block;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 7px 27px;
+
+	text-transform: uppercase;
+
+	/* 1 */
+
+	color: #FFD5CD;
+
+	&-glav {
+		border: 0px;
+		background: #49405A;
+		color: #FFD5CD;
+	}
+}
+
+.costum-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.block-margin {
+	margin-top: 150px;
+}
+
+.glav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 200px 0;
+	background: linear-gradient(0deg, rgba(134, 117, 169, 0.2), rgba(134, 117, 169, 0.2));
+	@include bg();
+
+	&__title {}
+
+	&__description {
+		margin: 40px 0;
+		max-width: 790px;
+	}
+}
+
+.menu {
+	position: relative;
+
+	&__description {
+		margin: 60px 0 35px;
+		width: 790px;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.cart {
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: start;
+	}
+
+	&-cart {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+		position: relative;
+		width: 290px;
+		height: 314px;
+		display: block;
+		margin: 5px;
+		padding: 6px;
+		display: flex;
+		align-items: end;
+
+		&__img {
+			top: 0;
+			left: 0;
+			position: absolute;
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&__title {
+			display: flex;
+			align-items: end;
+			height: 124px;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+			/* Обрезаем все, что не помещается в область */
+			text-overflow: ellipsis;
+			/* Добавляем многоточие */
+			font-family: $oswald-font;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 28px;
+			line-height: 130%;
+			text-transform: uppercase;
+			color: #FFFFFF;
+		}
+	}
+}
+
+.swiper {
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+
+	& img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&-wrapper {}
+
+	&-prev,
+	&-next {
+		position: absolute;
+		z-index: 2;
+		cursor: pointer;
+		top: 65%;
+
+		& img {
+			width: 40px;
+			height: 40px;
+			object-fit: contain;
+
+		}
+	}
+
+	&-prev {
+		left: 25%;
+	}
+
+	&-next {
+		transform: rotate(180deg);
+		right: 25%;
+	}
+}
+
+.about {
+	.costum-title {
+		margin-bottom: 60px;
+		text-align: center;
+	}
+
+	&-info {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+
+		&:nth-child(3) {
+			img {
+				margin-right: 30px;
+				display: block;
+			}
+		}
+
+		&:nth-child(2) {
+			img {
+				margin-left: 30px;
+				display: block;
+			}
+		}
+	}
+}
+
+.contact {
+	&__info {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.costum-container {}
+
+	.costum-title {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+
+	&-media {
+		display: flex;
+		flex-direction: column;
+
+		&__link {
+			margin-bottom: 36px;
+			display: flex;
+			align-items: center;
+
+			& span {
+				display: block;
+				margin-left: 15px;
+			}
+		}
+	}
+
+	.costum-text {}
+}
+
+.footer {
+	background: $color-purple;
+	padding: 22px 0;
+
+	&__container {
+		max-width: 1340px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+
+		span {
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 165.8%;
+			color: #fff;
+			display: block;
+			margin-top: 20px;
+		}
+	}
+
+	&__right {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+	}
+
+	&-list {
+		display: flex;
+
+		&__item {
+			margin-right: 27px;
+			font-family: $oswald-font;
+			font-weight: 500;
+			font-size: 18px;
+			// line-height: 160%;
+			text-transform: uppercase;
+			color: $text-color-light;
+		}
+	}
+
+	.costum {
+		&__btn {
+			margin-top: 20px;
+			width: 300px;
+		}
+	}
+}
+
+.header {
+	&__logo {}
+}
+
+.eat {
+	margin-top: 90px;
+	.costum-title {
+		margin-bottom: 60px;
+		text-align: center;
+	}
+	.costum-container {
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__left {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+	}
+	&__img {
+	}
+	&__price {
+		margin-top: 20px;
+	}
+	&__right {
+		ul {
+			list-style: circle;
+		}
+		li {
+			list-style-type: circle;
+		}
+	}
+}
+
+
+.costum-text {
+}
+.category{
+	margin-top: 90px;
+	.costum-title {
+		margin-bottom: 60px;
+		text-align: center;
+	}
+}
